@@ -34,14 +34,11 @@ if (process.env.PROXY_UNTRUSTED_CERT){
 
     const provider = new ethers.providers.Web3Provider(eip1193Provider);
     const myContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider.getSigner());
-    const spenderAddr = "0x95299cDa7b558747770c6ccE7691087FfDEf517E"
-
-    // 1 USDC to approve 
     const amount = 1e6
 
     // Invoke approve method
-    const tx = await myContract.retrieve()
-   
+    //const tx = await myContract.retrieve()
+    const tx = await myContract.store(amount) 
     console.log(JSON.stringify(tx, null, 2))
 
 })().catch(error => {
